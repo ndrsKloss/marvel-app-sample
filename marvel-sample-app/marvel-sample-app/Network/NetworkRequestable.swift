@@ -20,7 +20,8 @@ let appAlamofire: Alamofire.SessionManager = { () -> Alamofire.SessionManager in
 protocol NetworkRequestable {
     var alamofireSessionManager: Alamofire.SessionManager { get }
     
-    func getCharacters(completion: @escaping (NetworkResponse<Any>) -> Void)
+    //func getCharacters(completion: @escaping (NetworkResponse<Any>) -> Void)
+    func getCharacters(baseURL: String, queryItems: [URLQueryItem]?)
 }
 
 extension NetworkRequestable {
@@ -28,7 +29,18 @@ extension NetworkRequestable {
         return appAlamofire
     }
     
-    func getCharacters(completion: @escaping (NetworkResponse<Any>) -> Void) {
+    func getCharacters(baseURL: String, queryItems: [URLQueryItem]?) {
+        let route = "/v1/public/characters"
+        let endPoint = "\(baseURL)\(route)"
         
+        guard var urlComponents = URLComponents(string: endPoint) else {
+            return
+        }
+        
+        urlComponents.queryItems = queryItems
+        
+        guard let _ = urlComponents.url else {
+            return
+        }
     }
 }

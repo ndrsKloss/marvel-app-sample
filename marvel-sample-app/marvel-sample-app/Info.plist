@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Base URL</key>
+	<string>https://gateway.marvel.com</string>
+	<key>Marvel private API key</key>
+	<string>7ff755b9007c61c79412e2624b34b9de07c8ea5e</string>
+	<key>Marvel public API key</key>
+	<string>513178068996c7469e6a21ca27c71c2d</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
