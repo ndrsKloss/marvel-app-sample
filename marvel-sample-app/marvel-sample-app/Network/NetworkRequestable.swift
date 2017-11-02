@@ -20,8 +20,7 @@ let appAlamofire: Alamofire.SessionManager = { () -> Alamofire.SessionManager in
 protocol NetworkRequestable {
     var alamofireSessionManager: Alamofire.SessionManager { get }
     
-    //func getCharacters(completion: @escaping (NetworkResponse<Any>) -> Void)
-    func getCharacters(baseURL: String, queryItems: [URLQueryItem]?)
+    func getCharacters(baseURL: String, queryItems: [URLQueryItem]?, completion: @escaping (NetworkResponse<Container>) -> Void)
 }
 
 extension NetworkRequestable {
@@ -29,18 +28,26 @@ extension NetworkRequestable {
         return appAlamofire
     }
     
-    func getCharacters(baseURL: String, queryItems: [URLQueryItem]?) {
+    func getCharacters(baseURL: String, queryItems: [URLQueryItem]?, completion: @escaping (NetworkResponse<Container>) -> Void) {
         let route = "/v1/public/characters"
         let endPoint = "\(baseURL)\(route)"
         
-        guard var urlComponents = URLComponents(string: endPoint) else {
-            return
-        }
+        guard var urlComponents = URLComponents(string: endPoint) else { return }
         
         urlComponents.queryItems = queryItems
         
-        guard let _ = urlComponents.url else {
-            return
-        }
+        guard let url = urlComponents.url else { return }
+        
+        alamofireSessionManager.request(url)
+            .validate()
+            .responseObject(queue: DispatchQueue.global()) { (response: DataResponse<Container>)
+            in
+            switch response.result {
+                case .success(let value):
+                    completion(.success(value))
+                case .failure(let error):
+                    completion(.failure(error as? URLError))
+                }
+            }
     }
 }

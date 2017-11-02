@@ -54,7 +54,7 @@ class CharactersListRequester: NetworkRequestable {
 }
 
 extension CharactersListRequester {
-    func fetchCharacters() {
+    func fetchCharacters(completion: @escaping (NetworkResponse<Container>) -> Void ) {
         guard let baseURL = self.baseURL,
             let publicKey = self.marvelPublicKey,
             let hash = self.hash else {
@@ -67,6 +67,6 @@ extension CharactersListRequester {
             URLQueryItem(name: "hash", value: hash)
         ]
         
-        self.getCharacters(baseURL: baseURL, queryItems: queryItems)
+        self.getCharacters(baseURL: baseURL, queryItems: queryItems, completion: completion)
     }
 }

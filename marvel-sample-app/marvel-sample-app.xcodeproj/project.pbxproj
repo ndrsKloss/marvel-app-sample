@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		525296661FABB469003979A9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525296651FABB469003979A9 /* Character.swift */; };
+		525296681FABCC0C003979A9 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525296671FABCC0C003979A9 /* Container.swift */; };
 		527FADDF1FAB612100590EE8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527FADDB1FAB612100590EE8 /* Alamofire.framework */; };
 		527FADE01FAB612100590EE8 /* SwiftyDrop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527FADDC1FAB612100590EE8 /* SwiftyDrop.framework */; };
 		527FADE11FAB612100590EE8 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527FADDD1FAB612100590EE8 /* AlamofireObjectMapper.framework */; };
@@ -25,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		525296631FABAD29003979A9 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		525296651FABB469003979A9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		525296671FABCC0C003979A9 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		527FADD61FAB5B6D00590EE8 /* marvel-sample-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "marvel-sample-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		527FADD71FAB5C4500590EE8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		527FADDB1FAB612100590EE8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 		527FADE31FAB616100590EE8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				525296651FABB469003979A9 /* Character.swift */,
+				525296671FABCC0C003979A9 /* Container.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +265,8 @@
 				527FADE51FAB61C000590EE8 /* NetworkRequestable.swift in Sources */,
 				527FADEA1FAB67CA00590EE8 /* NetworkResponse.swift in Sources */,
 				527FADEF1FAB859100590EE8 /* PropertyListReader.swift in Sources */,
+				525296681FABCC0C003979A9 /* Container.swift in Sources */,
+				525296661FABB469003979A9 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
