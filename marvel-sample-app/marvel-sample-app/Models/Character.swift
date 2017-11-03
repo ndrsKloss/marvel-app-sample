@@ -12,8 +12,15 @@ import ObjectMapper
 class Character: ImmutableMappable {
     var name: String = ""
     var description: String = ""
-    var thumbnail: [Thumbnail]?
+    var thumbnail: Thumbnail?
     
+    var imageUrl: String? {
+        get {
+            guard let thumbnail = self.thumbnail else { return nil }
+            
+            return "\(thumbnail.path).\(thumbnail.`extension`)"
+        }
+    }
     
     required init(map: Map) throws {
         self.name = try map.value("name")

@@ -54,7 +54,7 @@ class CharactersListRequester: NetworkRequestable {
 }
 
 extension CharactersListRequester {
-    func fetchCharacters(completion: @escaping (NetworkResponse<Container>) -> Void ) {
+    func fetchCharacters(completion: @escaping (NetworkResponse<Container>) -> Void, limit: Int = 20, offset: Int = 0) {
         guard let baseURL = self.baseURL,
             let publicKey = self.marvelPublicKey,
             let hash = self.hash else {
@@ -62,6 +62,8 @@ extension CharactersListRequester {
         }
         
         let queryItems = [
+            URLQueryItem(name: "offset", value: offset.description),
+            URLQueryItem(name: "limit", value: limit.description),
             URLQueryItem(name: "ts", value: self.timeStamp),
             URLQueryItem(name: "apikey", value: publicKey),
             URLQueryItem(name: "hash", value: hash)

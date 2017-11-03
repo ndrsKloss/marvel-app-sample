@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		525296661FABB469003979A9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525296651FABB469003979A9 /* Character.swift */; };
 		525296681FABCC0C003979A9 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525296671FABCC0C003979A9 /* Container.swift */; };
+		5252966E1FABFA44003979A9 /* UIColor+MarvelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252966D1FABFA44003979A9 /* UIColor+MarvelApp.swift */; };
+		525296701FAC0832003979A9 /* MarvelNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252966F1FAC0832003979A9 /* MarvelNavigationController.swift */; };
 		527FADDF1FAB612100590EE8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527FADDB1FAB612100590EE8 /* Alamofire.framework */; };
 		527FADE01FAB612100590EE8 /* SwiftyDrop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527FADDC1FAB612100590EE8 /* SwiftyDrop.framework */; };
 		527FADE11FAB612100590EE8 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527FADDD1FAB612100590EE8 /* AlamofireObjectMapper.framework */; };
@@ -23,12 +25,15 @@
 		52B20BBB1FAB50AF00826685 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B20BB91FAB50AF00826685 /* Main.storyboard */; };
 		52B20BBD1FAB50AF00826685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B20BBC1FAB50AF00826685 /* Assets.xcassets */; };
 		52B20BC01FAB50AF00826685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B20BBE1FAB50AF00826685 /* LaunchScreen.storyboard */; };
+		52B915AB1FAC0AD800F6097F /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B915AA1FAC0AD800F6097F /* CharacterTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		525296631FABAD29003979A9 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		525296651FABB469003979A9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		525296671FABCC0C003979A9 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		5252966D1FABFA44003979A9 /* UIColor+MarvelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+MarvelApp.swift"; sourceTree = "<group>"; };
+		5252966F1FAC0832003979A9 /* MarvelNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelNavigationController.swift; sourceTree = "<group>"; };
 		527FADD61FAB5B6D00590EE8 /* marvel-sample-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "marvel-sample-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		527FADD71FAB5C4500590EE8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		527FADDB1FAB612100590EE8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -46,6 +51,7 @@
 		52B20BBA1FAB50AF00826685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52B20BBC1FAB50AF00826685 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52B20BBF1FAB50AF00826685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		52B915AA1FAC0AD800F6097F /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		525296691FABF838003979A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				52B20BB71FAB50AF00826685 /* CharactersListViewController.swift */,
+				5252966F1FAC0832003979A9 /* MarvelNavigationController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5252966A1FABF845003979A9 /* Requestables */ = {
+			isa = PBXGroup;
+			children = (
+				527FADEB1FAB83B400590EE8 /* CharactersListRequester.swift */,
+			);
+			path = Requestables;
+			sourceTree = "<group>";
+		};
+		5252966B1FABF865003979A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52B915AA1FAC0AD800F6097F /* CharacterTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5252966C1FABFA26003979A9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5252966D1FABFA44003979A9 /* UIColor+MarvelApp.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		527FADDA1FAB612100590EE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +161,7 @@
 			children = (
 				52B20BB51FAB50AF00826685 /* AppDelegate.swift */,
 				52B20BC81FAB50E100826685 /* CharactersList */,
+				5252966C1FABFA26003979A9 /* Extensions */,
 				527FADE31FAB616100590EE8 /* Models */,
 				52B20BC91FAB529000826685 /* Network */,
 				527FADE61FAB624300590EE8 /* Cryptographic Hash Function */,
@@ -146,8 +186,9 @@
 		52B20BC81FAB50E100826685 /* CharactersList */ = {
 			isa = PBXGroup;
 			children = (
-				52B20BB71FAB50AF00826685 /* CharactersListViewController.swift */,
-				527FADEB1FAB83B400590EE8 /* CharactersListRequester.swift */,
+				525296691FABF838003979A9 /* Controllers */,
+				5252966A1FABF845003979A9 /* Requestables */,
+				5252966B1FABF865003979A9 /* View */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -261,12 +302,15 @@
 				52B20BB81FAB50AF00826685 /* CharactersListViewController.swift in Sources */,
 				527FADE81FAB626800590EE8 /* MD5.swift in Sources */,
 				527FADEC1FAB83B400590EE8 /* CharactersListRequester.swift in Sources */,
+				525296701FAC0832003979A9 /* MarvelNavigationController.swift in Sources */,
 				52B20BB61FAB50AF00826685 /* AppDelegate.swift in Sources */,
+				5252966E1FABFA44003979A9 /* UIColor+MarvelApp.swift in Sources */,
 				527FADE51FAB61C000590EE8 /* NetworkRequestable.swift in Sources */,
 				527FADEA1FAB67CA00590EE8 /* NetworkResponse.swift in Sources */,
 				527FADEF1FAB859100590EE8 /* PropertyListReader.swift in Sources */,
 				525296681FABCC0C003979A9 /* Container.swift in Sources */,
 				525296661FABB469003979A9 /* Character.swift in Sources */,
+				52B915AB1FAC0AD800F6097F /* CharacterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +459,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "marvel-sample-app/Resources/marvel-sample-app-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -435,7 +479,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "marvel-sample-app/Resources/marvel-sample-app-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
