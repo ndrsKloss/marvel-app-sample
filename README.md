@@ -8,4 +8,4 @@ I wrote it in Swift 4.0 using Xcode 9
 
 I use [Carthage](https://github.com/Carthage/Carthage) as dependency manager.
 
-Use `carthage bootstrap -—platform iOS` to get all necessary frameworks.
+Use `carthage bootstrap --platform iOS` to get all necessary frameworks.
