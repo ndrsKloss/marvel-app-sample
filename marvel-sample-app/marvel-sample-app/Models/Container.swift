@@ -18,9 +18,11 @@ class Container: ImmutableMappable {
     
     class Data: ImmutableMappable {
         var characters: [Character]?
+        var total: Int?
         
         required init(map: Map) throws {
             self.characters = try? map.value("results")
+            self.total = try? map.value("total")
         }
     }
 }

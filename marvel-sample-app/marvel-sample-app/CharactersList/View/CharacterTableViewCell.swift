@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CharacterTableViewCell: UITableViewCell {
     static let identifier = "CharacterTableViewCellIdentifier"
@@ -15,7 +16,7 @@ class CharacterTableViewCell: UITableViewCell {
         didSet {
             imageThumbnail.clipsToBounds = true
             imageThumbnail.layer.cornerRadius = 7.5
-            imageThumbnail.contentMode = .scaleAspectFit
+            imageThumbnail.contentMode = .scaleToFill
         }
     }
     
@@ -41,6 +42,13 @@ class CharacterTableViewCell: UITableViewCell {
     }
     
     func configure(character: Character) {
+
+        if let imageUrl = character.imageUrl, let url = URL(string: imageUrl) {
+            self.imageThumbnail.kf.indicatorType = .activity
+            let resource = ImageResource(downloadURL: url, cacheKey: imageUrl)
+            self.imageThumbnail.kf.setImage(with: resource)
+        }
+
         self.labelTitle.text = character.name
         self.labelDescription.text = character.description
     }

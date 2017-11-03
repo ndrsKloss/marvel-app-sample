@@ -13,6 +13,7 @@ class CharactersListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
+            tableView.delegate = self
             tableView.separatorStyle = .none
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.estimatedRowHeight = 80.0
@@ -21,6 +22,9 @@ class CharactersListViewController: UIViewController {
     
     private var limit = 20
     private var offset = 0
+    private var total = 0
+    
+    private let requester = CharactersListRequester()
     
     private var characters = [Character]() {
         didSet {
@@ -35,7 +39,9 @@ class CharactersListViewController: UIViewController {
             break
             case .success(let value):
                 guard let data = value.data,
+                    let total = data.total,
                     let characters = data.characters else { break }
+                self.total = total
                 
                 DispatchQueue.main.async {
                     self.characters += characters
@@ -44,16 +50,9 @@ class CharactersListViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.barTintColor = UIColor.marvelRedColor
-        self.navigationController?.navigationBar.topItem?.title = "Marvel"
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        CharactersListRequester().fetchCharacters(completion: self.getCharactersCompletion, limit: self.limit, offset: self.offset)
+        self.requester.fetchCharacters(completion: self.getCharactersCompletion, limit: self.limit, offset: self.offset)
     }
 }
 
@@ -69,5 +68,15 @@ extension CharactersListViewController: UITableViewDataSource {
         }(tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.identifier, for: indexPath) as? CharacterTableViewCell)
         
         return cell ?? UITableViewCell()
+    }
+}
+
+extension CharactersListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard self.characters.count < self.total else { return }
+        
+        if indexPath.row == (self.characters.count - 1) {
+            self.requester.fetchCharacters(completion: self.getCharactersCompletion, limit: self.limit, offset: self.offset)
+        }
     }
 }
