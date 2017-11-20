@@ -14,6 +14,9 @@ class Character: ImmutableMappable {
     var description: String = ""
     var thumbnail: Thumbnail?
     
+    var a: String?
+    var b: String?
+    
     var imageUrl: String? {
         get {
             guard let thumbnail = self.thumbnail else { return nil }
